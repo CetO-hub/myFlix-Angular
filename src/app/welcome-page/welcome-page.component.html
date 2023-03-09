@@ -1,0 +1,29 @@
+<
+<div class="welcome-container">
+  <mat-card class="welcome-card">
+    <mat-card-header class="welcome-card-header">
+      <mat-card-title>Welcome to myFlix</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="welcome-card-actions">
+      <button
+        mat-raised-button
+        (click)="openUserLoginDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        <mat-icon class="btn-icon">login</mat-icon>
+        <span>Login</span>
+      </button>
+
+      <button
+        mat-raised-button
+        (click)="openUserRegistrationDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        <mat-icon class="btn-icon">account_circle</mat-icon>
+        <span>Sign up</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

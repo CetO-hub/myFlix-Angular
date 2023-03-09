@@ -1,0 +1,39 @@
+$titleFontWeight: 600;
+
+.genre-dialog {
+  padding: 3%;
+  max-width: 400px;
+}
+
+.genre-dialog-header {
+  justify-content: space-between;
+}
+
+.genre-dialog-title {
+  font-weight: $titleFontWeight;
+}
+
+.btn-dialog-close {
+  display: flex;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 0px;
+  height: 2rem !important;
+  width: 2rem !important;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  background-color: black;
+}
+
+.material-icons.md-18 {
+  font-size: 12px;
+  transform: translateY(20%);
+  top: 0;
+  left: 0;
+}
+
+.btn-dialog-close:hover {
+  color: white;
+}
