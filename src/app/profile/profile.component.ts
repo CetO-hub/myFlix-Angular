@@ -24,10 +24,17 @@ export class ProfileComponent implements OnInit {
     private router: Router
   ) {}
 
+  /**
+   * When component mounts get user information from backend by calling getUserInfo()
+   */
   ngOnInit(): void {
     this.getUserInfo();
   }
-
+  /**
+   * Get user information from backend
+   * @function getUserInfo()
+   * @returns user array with respective information
+   */
   getUserInfo(): void {
     this.userRegistrationService.getUser().subscribe((res: any) => {
       this.user = {
@@ -38,7 +45,10 @@ export class ProfileComponent implements OnInit {
       return this.user;
     });
   }
-
+  /**
+   * Delete user account after user confirmation
+   * @function onDeleteAccount()
+   */
   onDeleteAccount(username: string): void {
     if (
       confirm(
@@ -62,7 +72,10 @@ export class ProfileComponent implements OnInit {
       console.log('deleteAccountRes:', res);
     });
   }
-
+  /**
+   * Update user information
+   * @function onUserUpdate()
+   */
   onUserUpdate(): void {
     this.userRegistrationService
       .editUser(this.userUpdateData, this.user._id)

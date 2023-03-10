@@ -30,6 +30,11 @@ export class MovieCardComponent {
     this.getFavMovies();
   }
 
+  /**
+   * fetch movies from UserRegistrationService service getMovies()
+   * @returns an array of all movies
+   * @function getMovies
+   */
   getMovies(): void {
     this.UserRegistrationService.getAllMovies().subscribe((res: any) => {
       this.movies = res;
@@ -37,14 +42,23 @@ export class MovieCardComponent {
       return this.movies;
     });
   }
-
+  /**
+   * fetch favorite movies from FetchApiDataService service getFavMovies()
+   * @returns an empty array or an array of movies favorited by the user
+   * @function getFavMovies
+   */
   getFavMovies(): void {
     this.UserRegistrationService.getUser().subscribe((res: any) => {
       this.favoriteMovies = res.FavoriteMovies;
       return this.favoriteMovies;
     });
   }
-
+  /**
+   * opens the GenreComponent dialog
+   * @param name
+   * @param description
+   * @function openGenreDialog
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponentComponent, {
       data: {
@@ -53,7 +67,13 @@ export class MovieCardComponent {
       },
     });
   }
-
+  /**
+   * opens the DirectorComponent dialog
+   * @param name
+   * @param bio
+   * @param birth
+   * @function openDirectorDialog
+   */
   openDirectorDialog(name: string, bio: string, birth: string): void {
     this.dialog.open(DirectorComponentComponent, {
       data: {
@@ -63,7 +83,12 @@ export class MovieCardComponent {
       },
     });
   }
-
+  /**
+   * opens the SynopsisComponent dialog
+   * @param title
+   * @param description
+   * @function openSynopsisDialog
+   */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisComponentComponent, {
       data: {
@@ -72,7 +97,6 @@ export class MovieCardComponent {
       },
     });
   }
-
   onToggleFavMovie(id: string): void {
     if (!this.favoriteMovies.includes(id)) {
       this.UserRegistrationService.addFavoriteMovie(id).subscribe(
